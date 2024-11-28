@@ -1,0 +1,61 @@
+.table-section {
+  padding: 2rem;
+  border-radius: 1rem;
+  margin: 20px auto;
+}
+
+/* Table wrapper for alignment */
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Table styles */
+.resizable-table {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  width: 100%;
+  transition: width 0.3s ease, background-color 0.3s ease;
+  background-color: #ffffff; /* White background */
+}
+
+.resizable-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.resizable-table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.resizable-table th,
+.resizable-table td {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+  font-family: "Arial", sans-serif;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Rounded corners for the table */
+.resizable-table {
+  border-radius: 0.5rem;
+}
+
+/* Table cell style */
+.table-cell {
+  border: 1px solid #ddd;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  font-size: 1rem;
+}
+
+/* Table hover effect */
+.table-cell:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}

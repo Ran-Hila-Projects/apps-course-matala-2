@@ -26,31 +26,33 @@ class Container_Btns extends Component {
 
   render() {
     const COLORS = [
-      "red",
-      "blue",
-      "green",
-      "yellow",
-      "pink",
-      "purple",
-      "orange",
-      "brown",
+      "#FF6F61", // Coral
+      "#6B5B95", // Deep purple
+      "#88B04B", // Greenery
+      "#F7CAC9", // Rose quartz
+      "#92A8D1", // Serenity blue
+      "#FFE156", // Yellow sunshine
+      "#FF5722", // Orange sunset
+      "#3E2723", // Coffee brown
+      "#00897B", // Teal
+      "#D81B60", // Raspberry
     ];
+
     return (
       <div
-        style={{
-          backgroundColor: this.state.backgroundColor,
-          padding: "20px",
-          textAlign: "center",
-        }}
+        className="container"
+        style={{ backgroundColor: this.state.backgroundColor }}
       >
-        <h2>Select a Background Color</h2>
-        {COLORS.map((color) => (
-          <ColorBtn
-            key={color}
-            color={color}
-            onClick={this.handleColorChange}
-          />
-        ))}
+        <h2 className="title">Select a Background Color</h2>
+        <div className="buttons-container">
+          {COLORS.map((color) => (
+            <ColorBtn
+              key={color}
+              color={color}
+              onClick={this.handleColorChange}
+            />
+          ))}
+        </div>
       </div>
     );
   }
