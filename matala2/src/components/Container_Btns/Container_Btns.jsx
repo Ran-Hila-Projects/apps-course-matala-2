@@ -10,32 +10,22 @@ class Container_Btns extends Component {
     };
   }
 
-  componentDidMount() {
-    console.log("Container_Btns component mounted");
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.backgroundColor !== this.state.backgroundColor) {
-      console.log(`Background color changed to: ${this.state.backgroundColor}`);
-    }
-  }
-
   handleColorChange = (color) => {
     this.setState({ backgroundColor: color });
   };
 
   render() {
     const COLORS = [
-      "#FF6F61", // Coral
-      "#6B5B95", // Deep purple
-      "#88B04B", // Greenery
-      "#F7CAC9", // Rose quartz
-      "#92A8D1", // Serenity blue
-      "#FFE156", // Yellow sunshine
-      "#FF5722", // Orange sunset
-      "#3E2723", // Coffee brown
-      "#00897B", // Teal
-      "#D81B60", // Raspberry
+      { name: "Coral", hex: "#FF6F61" },
+      { name: "Deep Purple", hex: "#6B5B95" },
+      { name: "Greenery", hex: "#88B04B" },
+      { name: "Rose Quartz", hex: "#F7CAC9" },
+      { name: "Serenity Blue", hex: "#92A8D1" },
+      { name: "Yellow Sunshine", hex: "#FFE156" },
+      { name: "Orange Sunset", hex: "#FF5722" },
+      { name: "Coffee Brown", hex: "#3E2723" },
+      { name: "Teal", hex: "#00897B" },
+      { name: "Raspberry", hex: "#D81B60" },
     ];
 
     return (
@@ -47,8 +37,9 @@ class Container_Btns extends Component {
         <div className="buttons-container">
           {COLORS.map((color) => (
             <ColorBtn
-              key={color}
-              color={color}
+              key={color.hex}
+              color={color.hex}
+              name={color.name}
               onClick={this.handleColorChange}
             />
           ))}

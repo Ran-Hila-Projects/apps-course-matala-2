@@ -1,3 +1,7 @@
+#root {
+  gap: 3rem;
+  flex-direction: column;
+}
 * {
   margin: 0;
   padding: 0;

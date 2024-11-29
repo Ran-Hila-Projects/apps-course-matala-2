@@ -1,0 +1,14 @@
+.tooltip {
+  position: absolute;
+  background-color: rgba(239, 39, 39, 0.941);
+  color: white;
+  font-size: 0.8rem;
+  padding: 5px;
+  border-radius: 3px;
+  margin-top: 5px;
+  white-space: nowrap;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  user-select: none;
+  pointer-events: none;
+  right: 0;
+}

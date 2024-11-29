@@ -9,21 +9,26 @@ class ColorBtn extends Component {
   };
 
   render() {
-    const { color } = this.props;
+    const { color, name } = this.props;
     return (
-      <button
-        className="btn"
-        style={{ backgroundColor: color }}
-        onClick={this.handleClick}
-      >
-        {color}
-      </button>
+      <div className="color-btn">
+        <button
+          className="btn"
+          style={{
+            backgroundColor: color,
+          }}
+          onClick={this.handleClick}
+        >
+          {name}
+        </button>
+      </div>
     );
   }
 }
 
 ColorBtn.propTypes = {
   color: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
