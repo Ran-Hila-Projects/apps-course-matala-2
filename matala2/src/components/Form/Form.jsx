@@ -5,6 +5,8 @@ import "./style.css";
 class Form extends Component {
   constructor(props) {
     super(props);
+
+    // State to manage input values, tooltip visibility, and feedback messages
     this.state = {
       firstName: "",
       lastName: "",
@@ -14,42 +16,51 @@ class Form extends Component {
         lastName: false,
         psychometricScore: false,
       },
-      message: "",
-      psychometricFeedback: "", // Feedback message for the psychometric score
+      message: "", // General feedback message
+      psychometricFeedback: "", // Feedback message for psychometric score validation
     };
   }
 
+  // Handles changes in any input field and updates the corresponding state
   handleInputChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
+  // Shows the tooltip when the mouse enters an input field
   handleMouseEnter = (field) => {
     this.setState((prevState) => ({
       showTooltip: { ...prevState.showTooltip, [field]: true },
     }));
   };
 
+  // Hides the tooltip when the mouse leaves an input field
   handleMouseLeave = (field) => {
     this.setState((prevState) => ({
       showTooltip: { ...prevState.showTooltip, [field]: false },
     }));
   };
 
+  // Validates the psychometric score when the user leaves the input field (onBlur)
   handleScoreBlur = () => {
     const { psychometricScore } = this.state;
 
+    // If the score is >= 555, show a success message
     if (psychometricScore >= 555) {
       this.setState({
         psychometricFeedback:
           "Congratulations! Your score is above 555, welcome to the program!",
       });
-    } else if (psychometricScore < 555 && psychometricScore !== "") {
+    }
+    // If the score is < 555, show a message encouraging the user to try again
+    else if (psychometricScore < 555 && psychometricScore !== "") {
       this.setState({
         psychometricFeedback:
           "Unfortunately, your score is below 555. Please try again next year.",
       });
-    } else {
+    }
+    // Clear the feedback message if the input is invalid or empty
+    else {
       this.setState({ psychometricFeedback: "" });
     }
   };
@@ -66,7 +77,7 @@ class Form extends Component {
 
     return (
       <div className="form-container">
-        <h2>Registration</h2>
+        <h2>Fill the kind-of-form Please</h2>
         <form className="registration-form">
           <div className="input-wrapper">
             <label htmlFor="first-name" className="form-label">
@@ -120,7 +131,7 @@ class Form extends Component {
               min={0}
               value={psychometricScore}
               onChange={this.handleInputChange}
-              onBlur={this.handleScoreBlur}
+              onBlur={this.handleScoreBlur} // Trigger validation when the user leaves the field
               className="form-input"
               placeholder="Enter your score (0-800)"
             />

@@ -10,11 +10,13 @@ class Container_Btns extends Component {
     };
   }
 
+  // Handles the background color change based on the color selected from a button
   handleColorChange = (color) => {
     this.setState({ backgroundColor: color });
   };
 
   render() {
+    // Array of color objects containing color names and their corresponding hex values
     const COLORS = [
       { name: "Coral", hex: "#FF6F61" },
       { name: "Deep Purple", hex: "#6B5B95" },
@@ -29,18 +31,20 @@ class Container_Btns extends Component {
     ];
 
     return (
+      // Container whose background color changes based on the selected color
       <div
         className="container"
         style={{ backgroundColor: this.state.backgroundColor }}
       >
         <h2 className="title">Select a Background Color</h2>
+        {/* Buttons container that maps through the COLORS array and creates ColorBtn components */}
         <div className="buttons-container">
           {COLORS.map((color) => (
             <ColorBtn
-              key={color.hex}
-              color={color.hex}
-              name={color.name}
-              onClick={this.handleColorChange}
+              key={color.hex} // Unique key for each color
+              color={color.hex} // Passes the hex color to the button
+              name={color.name} // Passes the name of the color to the button
+              onClick={this.handleColorChange} // Callback to handle color change when clicked
             />
           ))}
         </div>
