@@ -74,6 +74,7 @@ class Form extends Component {
             type="text"
             name="firstName"
             value={firstName}
+            // value={firstName}
             placeholder="Enter your first name"
             onChange={this.handleInputChange}
             onMouseEnter={() => this.handleMouseEnter("firstName")}
